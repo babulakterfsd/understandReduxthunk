@@ -4,7 +4,7 @@ const delayMiddleware = store => next => action => {
    if(action.type === 'todo/ADD_TODO') {
        setTimeout(() => {
            next(action)
-       }, 2000)
+       }, 5000)
        return
    }
    return next(action)
