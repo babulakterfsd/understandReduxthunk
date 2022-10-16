@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 const delayMiddleware = store => next => action => {
    if(action.type === 'todo/ADD_TODO') {
        setTimeout(() => {
