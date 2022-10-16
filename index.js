@@ -1,6 +1,6 @@
 const {createStore, applyMiddleware} = require('redux')
-const {delayMiddleware, fetchAsyncMiddleware } = require('./middlewares/delayMiddleware')
-
+const {delayMiddleware } = require('./middlewares/delayMiddleware')
+const thunk = require('redux-thunk')
 const {fetchTodo} = require('./utils/fetchTodo')
 
 
@@ -27,14 +27,14 @@ const todoReducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(todoReducer, applyMiddleware(delayMiddleware, fetchAsyncMiddleware))
+const store = createStore(todoReducer, applyMiddleware(thunk.default, delayMiddleware))
 
 store.subscribe(() => {
     console.log(store.getState())
 })
 
-// store.dispatch({
-//     type: 'todo/ADD_TODO',
-//     payload: 'Learn Redux'
-// })
+store.dispatch({
+    type: 'todo/ADD_TODO',
+    payload: 'Learn Redux'
+})
 store.dispatch(fetchTodo)

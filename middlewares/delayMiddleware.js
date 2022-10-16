@@ -22,12 +22,13 @@ const delayMiddleware = store => next => action => {
 //     return next(action)
 // }
 
+// etai ashole thunk function vitre vitre ja kore. ekhn comment kore rekhe redux-thunk package use kore kaj kortesi, but vitore vitore thunk etai kore. maane action ta jodi kono function hoy, tahole tar vitore dispatch ar state ta diye action orthat oi functon ta ke call kore dey.
 
-const fetchAsyncMiddleware = store => next => action => {
-    if(typeof action === 'function') {
-        return action(store.dispatch, store.getState)
-    }
-    return next(action)
-}
+// const fetchAsyncMiddleware = store => next => action => {
+//     if(typeof action === 'function') {
+//         return action(store.dispatch, store.getState)
+//     }
+//     return next(action)
+// }
 
-module.exports = {delayMiddleware, fetchAsyncMiddleware}
+module.exports = {delayMiddleware}
